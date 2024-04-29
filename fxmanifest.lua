@@ -32,5 +32,5 @@ export {
 	'Checkambulancetoscoreboard',
 	'Checkmechanictoscoreboard',
 	'Checkcheftoscoreboard',
-	'Checkplayerstoscoreboard',
+	'Checkplayerstoscoreboard'
 }
