@@ -1,20 +1,8 @@
-# nt_core
+# NT CORE By Nutto.jsx
+
+ADD NPC
+
 ```lua
-
-exports('addBlip', function(loc, sprite, scale, color, label)
-    local blip = AddBlipForCoord(loc)
-    SetBlipSprite(blip, sprite)
-    SetBlipDisplay(blip, 4)
-    SetBlipScale(blip, scale * 1.0)
-    SetBlipColour(blip, color)
-    SetBlipAsShortRange(blip, true)
-    BeginTextCommandSetBlipName('STRING')
-    AddTextComponentString(label)
-    EndTextCommandSetBlipName(blip)
-
-    return blip
-end)
-
 exports('addStaticNPC', function(loc, model, anim, heading)
     RequestModel(GetHashKey(model))
     while not HasModelLoaded(GetHashKey(model)) do
@@ -35,5 +23,20 @@ exports('addStaticNPC', function(loc, model, anim, heading)
 
     return npcPed
 end)
+```
+ADD BLIP
+```lua
+exports('addBlip', function(loc, sprite, scale, color, label)
+    local blip = AddBlipForCoord(loc)
+    SetBlipSprite(blip, sprite)
+    SetBlipDisplay(blip, 4)
+    SetBlipScale(blip, scale * 1.0)
+    SetBlipColour(blip, color)
+    SetBlipAsShortRange(blip, true)
+    BeginTextCommandSetBlipName('STRING')
+    AddTextComponentString(label)
+    EndTextCommandSetBlipName(blip)
 
+    return blip
+end)
 ```
