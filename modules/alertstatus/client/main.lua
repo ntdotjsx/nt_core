@@ -18,9 +18,10 @@ Citizen.CreateThread(function()
 
 		local playerPed  = GetPlayerPed(-1)
 		local prevHealth = GetEntityHealth(playerPed)
-		local health     = prevHealth
+		local health = prevHealth
 
 		TriggerEvent('esx_status:getStatus', 'hunger', function(status)
+			if status.val < 100000 then
 				exports.nt_core:notify('fail', 'คุณกำลังหิวข้าว...', 3)
 				Wait(5000)
 				exports.nt_core:notify('fail', 'คุณกำลังหิวข้าว...', 3)

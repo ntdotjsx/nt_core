@@ -56,6 +56,13 @@ exports('notify', function(type, text, length)
     exports['nt_notify']:SendNotify(text, type, length)
 end)
 
+exports('sendInventoryItem', function(type, item, count, source)
+    print(type)
+    TriggerEvent('azael_ui-itemnotify:sendInventoryItem', type, item, count, source)
+end)
+
+-- exports.nt_core:sendInventoryItem('add', item.name, count, self.source)
+
 -- exports.nt_core:notify('su', 'คาดเข็มขัดแล้ว', 5000)
 
 -- exports('addBlip', function(loc, sprite, scale, color, label)
