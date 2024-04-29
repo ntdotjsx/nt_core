@@ -20,3 +20,13 @@ CreateThread(function ()
         BlockWeaponWheelThisFrame()
     end
 end)
+
+-- TEST SCRIPT
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if IsControlJustPressed(0, 38) then
+         
+        end
+    end
+end)
