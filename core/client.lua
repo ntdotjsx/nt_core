@@ -1,5 +1,4 @@
 Citizen.CreateThread(function() 
-	print("^6 [" .. GetCurrentResourceName() .. "] ^2SCRIPTS => ON :D")
 	Citizen.Wait(120000)
 	while true do
 		Citizen.Wait(45000)
@@ -7,11 +6,9 @@ Citizen.CreateThread(function()
 	end
 end)
 
-AddEventHandler('onResourceStop', function(resource)
-    if resource == GetCurrentResourceName() then
-		print("^6 [" .. GetCurrentResourceName() .. "] ^2SCRIPTS => OFF :(")
-		TriggerServerEvent('nt_core:status')
-    end
+AddEventHandler("onResourceStart", function()
+	print("^6 [" .. GetCurrentResourceName() .. "] ^2IS READY BRO :D")
+	TriggerServerEvent("nt_core:ResourceStatus")
 end)
 
 AddEventHandler("nt_core:ClearMemoryCl", function()

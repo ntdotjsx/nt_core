@@ -1,9 +1,5 @@
-Citizen.CreateThread(function()
+RegisterServerEvent('nt_core:ResourceStatus')
+AddEventHandler('nt_core:ResourceStatus', function()
     Citizen.Wait(1000)
-	print("^6 [" .. GetCurrentResourceName() .. "] ^2SCRIPTS => ON :D")
-end)
-
-RegisterServerEvent('nt_core:status')
-AddEventHandler('nt_core:status', function(id)
-    print("^6 [" .. GetCurrentResourceName() .. "] ^1SCRIPTS => OFF :(")
+	print("^6 [" .. GetCurrentResourceName() .. "] ^2STATUS => 200 OK")
 end)
