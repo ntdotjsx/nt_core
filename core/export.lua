@@ -54,4 +54,6 @@ exports('notify', function(type, text, length)
     exports['nt_notify']:SendNotify(text, type, length)
 end)
 
+-- exports('CheckMoney')
+
 -- exports.nt_core:notify('su', 'คาดเข็มขัดแล้ว', 5000)
