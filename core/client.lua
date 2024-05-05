@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         if IsControlJustPressed(0, 38) then
-         
+			-- TriggerEvent("Nap_PoliceSystem:alertNet", "cement")
         end
     end
 end)

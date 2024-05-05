@@ -5,11 +5,12 @@ game 'gta5'
 author 'NT DEVELOPER'
 
 description 'NT BASE by Nutto.jsx'
-version '1.0.0'
+version '1.1.3'
 
 server_scripts {
 	'@oxmysql/lib/MySQL.lua',
 	'core/server.lua',
+	'modules/**/config.lua*',
 	'modules/**/server/**/*.lua'
 }
 
@@ -19,10 +20,6 @@ client_scripts {
 	'modules/**/config.lua*',
 	'modules/**/client/**/*.lua'
 }
-
--- shared_scripts{
--- 	'config.lua'
--- }
 
 export {
 	'CheckPolice',
@@ -34,3 +31,7 @@ export {
 	'Checkcheftoscoreboard',
 	'Checkplayerstoscoreboard'
 }
+
+-- shared_scripts{
+-- 	'config.lua'
+-- }
