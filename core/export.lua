@@ -41,9 +41,7 @@ exports('onNetworkPlayerActive', function(cb)
         while not NetworkIsPlayerActive(PlayerId()) do
             Citizen.Wait(500)
         end
-    
         Citizen.Wait(500)
-
         cb(threadId)
     end)
 end)
