@@ -54,6 +54,7 @@ exports('notify', function(type, text, length)
     exports['nt_notify']:SendNotify(text, type, length)
 end)
 
--- exports('CheckMoney')
-
--- exports.nt_core:notify('su', 'คาดเข็มขัดแล้ว', 5000)
+exports('ResourceStatus', function(name)
+    local message = "^6 [" .. name .. "] ^2IS READY BRO :3"
+    print(message)
+end)

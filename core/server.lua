@@ -1,6 +1,9 @@
-RegisterServerEvent('nt_core:ResourceStatus')
-AddEventHandler('nt_core:ResourceStatus', function(resource)
-    if resource == GetCurrentResourceName() then
-        print("^7[^2SCRIPT^7] ".. GetCurrentResourceName() .." Status ^5200 ^7OK")
-    end
+RegisterServerEvent('nt_core:ResourceSv')
+AddEventHandler('nt_core:ResourceSv', function(name)
+    Citizen.Wait(1000)
+    print("^2["..name.."] ^7Status ^2200 ^7OK")
 end)
+
+-- Citizen.CreateThread(function()
+-- 	TriggerEvent('nt_core:ResourceSv', GetCurrentResourceName())
+-- end)

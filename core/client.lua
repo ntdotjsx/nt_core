@@ -6,13 +6,6 @@ Citizen.CreateThread(function()
 	end
 end)
 
-AddEventHandler("onResourceStart", function(resource)
-    if resource == GetCurrentResourceName() then
-		print("^6 [" .. GetCurrentResourceName() .. "] ^2IS READY BRO :3")
-		TriggerServerEvent('nt_core:ResourceStatus', GetCurrentResourceName())
-	end
-end)
-
 AddEventHandler("nt_core:ClearMemoryCl", function()
 	Citizen.CreateThread(function()
 		local rdm = math.random(100, 2000)

@@ -40,3 +40,24 @@ exports('addBlip', function(loc, sprite, scale, color, label)
     return blip
 end)
 ```
+ResourceStatus
+```lua
+Citizen.CreateThread(function()
+    Citizen.Wait(1000)
+	exports.nt_core:ResourceStatus(GetCurrentResourceName())
+end)
+```
+ResourceSV
+```lua
+Citizen.CreateThread(function()
+	TriggerEvent('nt_core:ResourceSv', GetCurrentResourceName())
+end)
+```
+CheckMoney
+```lua
+exports('CheckMoney')
+```
+notify
+```lua
+exports.nt_core:notify('su', 'คาดเข็มขัดแล้ว', 5000)
+```
