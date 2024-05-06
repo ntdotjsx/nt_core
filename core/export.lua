@@ -55,6 +55,7 @@ exports('notify', function(type, text, length)
 end)
 
 exports('ResourceStatus', function(name)
+    Citizen.Wait(1000)
     local message = "^6 [" .. name .. "] ^2IS READY BRO :3"
     print(message)
 end)

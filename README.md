@@ -43,7 +43,6 @@ end)
 ResourceStatus
 ```lua
 Citizen.CreateThread(function()
-    Citizen.Wait(1000)
 	exports.nt_core:ResourceStatus(GetCurrentResourceName())
 end)
 ```
