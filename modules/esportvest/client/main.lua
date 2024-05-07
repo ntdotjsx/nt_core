@@ -16,7 +16,7 @@ local weaponlist = {
 	{ name = "weapon_bat_1st", damage = 18},
 	{ name = "WEAPON_GOLFCLUB", damage = 18},
 	{ name = "WEAPON_MACHETE", damage = 33},
-	{ name = "WEAPON_UNARMED", damage = 3},
+	{ name = "WEAPON_UNARMED", damage = 4},
 	{ name = "WEAPON_SPECIALCARBINE", damage = 10},
 	{ name = "WEAPON_MICROSMG", damage = 8},
 	{ name = "WEAPON_ASSAULTRIFLE", damage = 10},
@@ -39,6 +39,7 @@ local weaponlist = {
 	{ name = "WEAPON_GOLFCLUB_NEVIA", damage = 40},	
 	{ name = "WEAPON_HIT_BY_WATER_CANNON", damage = 1},
 	{ name = "VEHICLE_WEAPON_WATER_CANNON", damage = 1},
+	{ name = "WEAPON_POOLCUE_LV3", damage = 18},
 	{ name = "WEAPON_GRENADE", damage = 1},
 }
 
