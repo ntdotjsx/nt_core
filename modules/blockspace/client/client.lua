@@ -6,7 +6,7 @@ local s = {
 	["leftclick"] = 0,
 	["leftclickcooldown"] = 0,
 	["spacecount"] = 5,
-	["spacecountcooldown"] = 3,
+	["spacecountcooldown"] = 5,
 	["rightclick"] = 0,
 	["rightclickcooldown"] = 0,
 }

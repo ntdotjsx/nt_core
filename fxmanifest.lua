@@ -21,6 +21,8 @@ client_scripts {
 	'modules/**/client/**/*.lua'
 }
 
+shared_script '@es_extended/imports.lua'
+
 export {
 	'CheckPolice',
 	'Checkems',
@@ -31,7 +33,3 @@ export {
 	'Checkcheftoscoreboard',
 	'Checkplayerstoscoreboard'
 }
-
--- shared_scripts{
--- 	'config.lua'
--- }

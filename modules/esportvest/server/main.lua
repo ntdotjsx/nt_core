@@ -1,6 +1,4 @@
-ESX = nil
-
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+ESX = exports["es_extended"]:getSharedObject()
 
 for k, v in pairs(Config.Armour) do
     ESX.RegisterUsableItem('armor', function(source)
@@ -18,4 +16,3 @@ AddEventHandler('nt_vest:remove', function(item)
 
 	xPlayer.removeInventoryItem(item, 1)
 end)
-

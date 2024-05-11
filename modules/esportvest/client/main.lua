@@ -1,3 +1,5 @@
+ESX = exports["es_extended"]:getSharedObject()
+
 local weaponlist = {
 	{ name = "WEAPON_SWITCHBLADE", damage = 72},
 	{ name = "WEAPON_KNUCKLE_LV5", damage = 17},
@@ -8,10 +10,10 @@ local weaponlist = {
 	{ name = "WEAPON_BATTLEAXELV3", damage = 43},
 	{ name = "weapon_battleaxelv2", damage = 33},
 	{ name = "WEAPON_BATTLEAXE", damage = 21},
-	{ name = "WEAPON_POOLCUE", damage = 26},
-	{ name = "WEAPON_DAGGER", damage = 42},
-	{ name = "WEAPON_KNIFE", damage = 42},
-	{ name = "WEAPON_BOTTLE", damage = 32},
+	{ name = "WEAPON_POOLCUE", damage = 18},
+	{ name = "WEAPON_DAGGER", damage = 38},
+	{ name = "WEAPON_KNIFE", damage = 38},
+	{ name = "WEAPON_BOTTLE", damage = 30},
 	{ name = "WEAPON_BAT", damage = 18},
 	{ name = "weapon_bat_1st", damage = 18},
 	{ name = "WEAPON_GOLFCLUB", damage = 18},
@@ -43,12 +45,10 @@ local weaponlist = {
 	{ name = "WEAPON_GRENADE", damage = 1},
 }
 
-Citizen.CreateThread(function()
-    while ESX == nil do
-        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-        Citizen.Wait(10)
-    end
-end)
+local poison = false
+local isDead = false
+local nump = false
+
 
 AddEventHandler("nt_core:ClearMemoryCl", function()
 	Citizen.CreateThread(function()
@@ -56,6 +56,17 @@ AddEventHandler("nt_core:ClearMemoryCl", function()
 		Wait(rdm)
 		collectgarbage()
 	end)
+end)
+
+AddEventHandler("esx:onPlayerDeath", function()
+    isDead = true
+	poison = false
+	nump = false
+	closeIcon()
+end)
+
+AddEventHandler("esx:onPlayerSpawn", function()
+    isDead = false
 end)
 
 Citizen.CreateThread(function()
@@ -68,7 +79,7 @@ Citizen.CreateThread(function()
 					local WeaponHash = GetHashKey(i.name)
 					N_0x4757f00bc6323cfe(WeaponHash, 0.0001)
 					if HasEntityBeenDamagedByWeapon(ped, WeaponHash, 0) then
-						if i.name == 'WEAPON_BATTLEAXELV3' then
+						if i.name == 'WEAPON_BOTTLE_XXX' then
 							ApplyDamageToPed(PlayerPedId(), i.damage - 1, true)
 							poison = true
 							isPoison()
@@ -113,6 +124,17 @@ Citizen.CreateThread(function()
 	end
 end)
 
+function isPoison()
+	-- showIcon()
+	Citizen.CreateThread(function()
+		local ped = PlayerPedId()
+		while poison do
+			Citizen.Wait(1000)
+			SetEntityHealth(ped, GetEntityHealth(ped) - 1)
+		end
+	end)
+end
+
 function checkHasItem(item_name)
     local inventory = ESX.GetPlayerData().inventory
     for i = 1, #inventory do
@@ -122,21 +144,46 @@ function checkHasItem(item_name)
     return false
 end
 
+RegisterNetEvent('nt_vest:wait')
+AddEventHandler('nt_vest:wait', function()
+	Wait(1800)
+	busy = false
+end)
+
 RegisterNetEvent('nt_vest:addarmour')
 AddEventHandler('nt_vest:addarmour', function(Armour, EvenName)
     if not busy then
         busy = true
         TriggerEvent(EvenName)
+		TriggerEvent('nt_vest:wait')
         local playerPed = GetPlayerPed(-1)
         RequestAnimDict("clothingshirt")
         while not HasAnimDictLoaded("clothingshirt") do
             Citizen.Wait(100)
         end
+		TriggerServerEvent('nt_vest:remove', Armour.itemName)
         TaskPlayAnim(GetPlayerPed(PlayerId()), "clothingshirt", "try_shirt_positive_d", 1.0, -1, -1, 50, 0, 0, 0, 0)
-        Citizen.Wait(5000)
-        SetPedArmour(playerPed, 100) 
-        TriggerServerEvent('nt_vest:remove', Armour.itemName)
-        StopAnimTask(PlayerPedId(), 'clothingshirt', 'try_shirt_positive_d', 1.0)
-        busy = false
+
+		exports['mythic_progbar']:Progress({
+			name = "armour",
+			duration = 5000,
+			label = 'Doing Something',
+			useWhileDead = true,
+			canCancel = false,
+			controlDisables = {
+				disableMovement = false,
+				disableCarMovement = false,
+				disableMouse = false,
+				disableCombat = false,
+			},
+			animation = {
+				animDict = "clothingshirt",
+				anim = "try_shirt_positive_d",
+				flags = 49,
+			},
+		}, function()
+			SetPedArmour(playerPed, 100) 
+			StopAnimTask(PlayerPedId(), 'clothingshirt', 'try_shirt_positive_d', 1.0)
+		end)
     end
 end)

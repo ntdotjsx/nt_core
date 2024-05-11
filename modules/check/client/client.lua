@@ -4,12 +4,7 @@ local ambulance       = 0
 local mechanic        = 0
 local chefs            = 0
 local players         = 0
-Citizen.CreateThread(function()
-    while ESX == nil do
-        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-        Citizen.Wait(0)
-    end
-end)
+ESX = exports["es_extended"]:getSharedObject()
 
 Citizen.CreateThread(function()
     Citizen.Wait(2000)

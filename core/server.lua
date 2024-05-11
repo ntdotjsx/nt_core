@@ -1,3 +1,5 @@
+ESX = exports["es_extended"]:getSharedObject()
+
 RegisterServerEvent('nt_core:ResourceSv')
 AddEventHandler('nt_core:ResourceSv', function(name)
     Citizen.Wait(1000)
