@@ -30,3 +30,11 @@ exports('ResourceStatus', function(name)
     local message = "^6 [" .. name .. "] ^2IS READY BRO :3"
     print(message)
 end)
+
+exports('ShowToolTip',function (msg, coords)
+    AddTextEntry('CrystalHelpNotification', msg)
+    SetFloatingHelpTextWorldPosition(1, coords)
+    SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
+    BeginTextCommandDisplayHelp('CrystalHelpNotification')
+    EndTextCommandDisplayHelp(2, false, false, -1)
+end)
