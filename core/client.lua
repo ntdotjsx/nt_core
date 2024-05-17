@@ -29,6 +29,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
         if IsControlJustPressed(0, 38) then
 			-- TriggerEvent("Nap_PoliceSystem:alertNet", "cement")
+            -- TriggerEvent('nt:onpainkiller')
         end
     end
 end)
