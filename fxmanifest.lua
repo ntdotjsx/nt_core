@@ -7,6 +7,8 @@ author 'NT DEVELOPER'
 description 'NT BASE by Nutto.jsx'
 version '1.1.3'
 
+shared_script '@es_extended/imports.lua'
+
 server_scripts {
 	'@oxmysql/lib/MySQL.lua',
 	'core/server.lua',
@@ -20,8 +22,6 @@ client_scripts {
 	'modules/**/config.lua*',
 	'modules/**/client/**/*.lua'
 }
-
-shared_script '@es_extended/imports.lua'
 
 export {
 	'CheckPolice',

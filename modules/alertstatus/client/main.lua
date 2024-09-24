@@ -1,14 +1,7 @@
-ESX          = nil
+ESX = exports["es_extended"]:getSharedObject()
 local IsDead = false
 local IsAnimated = false
 local isUiOpen = false 
-
-Citizen.CreateThread(function()
-	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
-	end
-end)
 
 Citizen.CreateThread(function()
 
@@ -22,9 +15,9 @@ Citizen.CreateThread(function()
 
 		TriggerEvent('esx_status:getStatus', 'hunger', function(status)
 			if status.val < 100000 then
-				exports.nt_core:notify('fail', 'คุณกำลังหิวข้าว...', 3)
+				exports.nt_core:notify('error', 'คุณกำลังหิวข้าว...', 10000)
 				Wait(5000)
-				exports.nt_core:notify('fail', 'คุณกำลังหิวข้าว...', 3)
+				exports.nt_core:notify('error', 'คุณกำลังหิวข้าว...', 10000)
 			end
 		end)
 	end

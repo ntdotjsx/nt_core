@@ -1,5 +1,3 @@
-ESX = exports["es_extended"]:getSharedObject()
-
 Citizen.CreateThread(function() 
 	Citizen.Wait(120000)
 	while true do
@@ -28,7 +26,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         if IsControlJustPressed(0, 38) then
-			-- TriggerEvent("Nap_PoliceSystem:alertNet", "cement")
+			-- TriggerEvent("nt_agency:alertNet", "cement")
             -- TriggerEvent('nt:onpainkiller')
         end
     end

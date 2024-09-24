@@ -22,7 +22,13 @@ exports('notify', function(type, text, length)
         length = 3000
     end
 
-    exports['nt_notify']:SendNotify(text, type, length)
+    TriggerEvent("pNotify:SendNotification", {
+        text = text,
+        type = type,
+        timeout = length,
+        layout = "bottomRight",
+        queue = "global"
+    })
 end)
 
 exports('ResourceStatus', function(name)
@@ -37,4 +43,22 @@ exports('ShowToolTip',function (msg, coords)
     SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
     BeginTextCommandDisplayHelp('CrystalHelpNotification')
     EndTextCommandDisplayHelp(2, false, false, -1)
+end)
+
+exports('Draw3DText', function (coords, text)
+    RegisterFontFile('font4thai')
+    local fontId = RegisterFontId('font4thai')
+    EndTextCommandDisplayText(coords.x, coords.y)  
+    SetTextScale(0.45, 0.45)
+    SetTextFont(fontId)
+    SetTextColour(255, 255, 255, 255)
+    SetTextDropshadow(0, 0, 0, 0, 255)
+    SetTextDropShadow()
+    SetTextOutline()
+    SetTextCentre(true)
+    SetDrawOrigin(coords.x, coords.y, coords.z, 0)
+    BeginTextCommandDisplayText('STRING')
+    AddTextComponentSubstringPlayerName(text)
+    EndTextCommandDisplayText(0.0, 0.0)
+    ClearDrawOrigin()
 end)
