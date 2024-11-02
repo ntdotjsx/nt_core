@@ -1,4 +1,4 @@
-# NT CORE By Nutto.jsx
+# NT CORE SCRIPT FOR FIVEM SERVER By Nutto.jsx
 
 ADD NPC
 
